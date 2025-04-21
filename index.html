@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery QR | Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1><i class="fas fa-leaf"></i> Grocery QR</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="cart.html">Cart <span id="cart-count">0</span></a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="hero-content">
+           
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search for products...">
+                <button id="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="budget-container">
+        <h3>Budget Tracker</h3>
+        <div class="budget-input">
+            <input type="number" id="budget-input" placeholder="Enter your budget limit">
+            <button id="set-budget-btn">Set Budget</button>
+        </div>
+        <div id="budget-display" class="hidden">
+            <p>Your Budget: $<span id="budget-amount">0.00</span></p>
+            <p>Current Spending: $<span id="current-spending">0.00</span></p>
+            <div class="budget-progress">
+                <div id="budget-bar"></div>
+            </div>
+        </div>
+    </div>
+<!-- 
+    <div class="hero-content">
+        <div class="search-budget-wrapper">
+          <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search for products...">
+            <button id="search-btn"><i class="fas fa-search"></i></button>
+          </div>
+          <div class="budget-container">
+            <h3>Budget Tracker</h3>
+            <div class="budget-input">
+              <input type="number" id="budget-input" placeholder="Enter your budget limit">
+              <button id="set-budget-btn">Set Budget</button>
+            </div>
+            <div id="budget-display" class="hidden">
+              <p>Your Budget: $<span id="budget-amount">0.00</span></p>
+              <p>Current Spending: $<span id="current-spending">0.00</span></p>
+              <div class="budget-progress">
+                <div id="budget-bar"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      
+    <section class="categories">
+        <h2>Categories</h2>
+        <div class="category-grid">
+            <div class="category-card" data-category="spices">
+                <img src="https://st.depositphotos.com/1105977/1846/i/950/depositphotos_18460429-stock-photo-spices-collection.jpg" alt="Spices">
+                <h3>Spices</h3>
+            </div>
+            <div class="category-card" data-category="homeEssentials">
+                <img src="https://our.today/wp-content/uploads/2021/03/householdcleaners.jpg" alt="Home Essentials">
+                <h3>Home Essentials</h3>
+            </div>
+            <div class="category-card" data-category="dairy">
+                <img src="https://th.bing.com/th/id/OIP.d9wzjKjXF3UjNQUiOFkMQQHaFs?w=520&h=400&rs=1&pid=ImgDetMain" alt="Dairy">
+                <h3>Dairy</h3>
+            </div>
+            <div class="category-card" data-category="Packaged & Instant Foods">
+                <img src="https://www.foodnavigator-usa.com/resizer/Sjt6dlgb7N-Fbu6LEyUYraw23Ec=/arc-photo-williamreed/eu-central-1-prod/public/QF4C4O4S3NKZXFF36C6R6AMTII.jpg" alt="Packaged & Instant Foods">
+                <h3>Packaged & Instant Foods</h3>
+            </div>
+            <div class="category-card" data-category="beverages">
+                <img src="https://c8.alamy.com/comp/M50RAD/bottles-of-assorted-global-soft-drinks-M50RAD.jpg" alt="Beverages">
+                <h3>Beverages</h3>
+            </div>
+            <div class="category-card" data-category="snacks">
+                <img src="https://media1.popsugar-assets.com/files/thumbor/_kQYPOgrbL064Af_QCqvwgnd004/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2020/10/20/618/n/1922729/413675d6e3a9d780_netimgL0HJXE/i/Ultimate-Classic-Snacks-Package-Variety.jpg" alt="Snacks">
+                <h3>Snacks</h3>
+            </div>
+        </div>
+    </section>
+
+    <section class="products">
+        <h2>All Products</h2>
+        <div class="filter-container">
+            <select id="category-filter">
+                <option value="all">All Categories</option>
+                <option value="spices">Spices</option>
+                <option value="Home Essentials">Home Essentials</option>
+                <option value="dairy">Dairy</option>
+                <option value="Packaged & Instant Foods">Packaged & Instant Foods</option>
+                <option value="beverages">Beverages</option>
+                <option value="snacks">Snacks</option>
+            </select>
+            <select id="sort-filter">
+                <option value="default">Sort By</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="name-asc">Name: A to Z</option>
+                <option value="name-desc">Name: Z to A</option>
+            </select>
+        </div>
+        <div id="products-grid" class="products-grid">
+            <!-- Products will be loaded here via JavaScript -->
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Grocery QR</h3>
+                <p>Your one-stop shop for fresh groceries and quality products.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Grocery St, Food City</p>
+                <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+                <p><i class="fas fa-envelope"></i> info@Grocery QR.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Grocery QR. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="notification" class="notification">
+        <p id="notification-message"></p>
+        <span class="close-notification">&times;</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
